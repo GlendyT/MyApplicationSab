@@ -5,6 +5,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.activity.ComponentActivity
+import android.content.Intent
 
 class MainActivity : ComponentActivity() {
 
@@ -23,11 +24,10 @@ class MainActivity : ComponentActivity() {
         btnSaludar.setOnClickListener {
             val nombre = txtNombre.text.toString().trim()
 
-            if (nombre.isEmpty()) {
-                lblSaludo.text = "Ingrese su nombre"
-            } else {
-                lblSaludo.text = "Hola, $nombre"
-            }
+
+            val intent = Intent(this, VehiculosActivity::class.java)
+            intent.putExtra( "nombre" ,  nombre)
+            startActivity(intent)
         }
     }
 }
